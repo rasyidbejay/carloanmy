@@ -1,57 +1,113 @@
-# CarLoan.my
-Salary‑first car affordability and loan calculator built with Next.js App Router (TypeScript + Tailwind). Designed as a premium, dark, decision‑focused dashboard for Malaysian car buyers.
+# CarLoan.my · Premium Car Affordability & Loan Dashboard
+Decision-first, salary-aware car affordability and loan experience for Malaysian drivers. Built as a dark, premium dashboard that helps users understand “What car can I afford?” before they dive into the numbers.
 
-## Core features
-- Salary‑first affordability planner with adjustable down payment, tenure, rate, and loan type (hire purchase / Islamic).
-- Car discovery with local data, affordability badges, and inline selection.
-- Calculator with live repayment, affordability status, and comparison scenarios.
-- Simplified amortisation breakdown.
-- Light/dark theme via `next-themes`.
+![Stack](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white)
+![Tailwind_CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwind-css&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=black)
+![Theme](https://img.shields.io/badge/Theming-next--themes-8b5cf6)
 
-## Tech stack
-- Next.js 14 App Router (TypeScript)
-- Tailwind CSS, clsx, tailwind-merge
-- lucide-react icons
-- next-themes for theming
-- Inter font via `@fontsource/inter`
+---
 
-## Local development
-Prereqs: Node.js 18+ (Node 20 recommended), npm.
+## 1) Product summary
+CarLoan.my is a salary-first car affordability and loan decision tool. It lets users search Malaysian models, see affordability at a glance, adjust financing inputs, compare scenarios, and review a simple flat-rate repayment breakdown.
 
+## 2) Problem it solves
+Most loan calculators start from a car price. CarLoan.my starts from salary, down payment, and tenure to surface realistic options and repayments, reducing decision fatigue for buyers.
+
+## 3) Key features
+- Salary-first affordability inputs with loan type toggle (hire purchase / Islamic)
+- Car discovery with affordability badges and inline selection
+- Live calculator: loan amount, monthly payment, total repayment, interest, affordability status
+- Scenario compare (save/apply/remove up to 3 setups)
+- Simplified flat-rate amortisation breakdown (monthly and yearly views)
+- Dark/light theme with `next-themes`
+- Mobile-friendly layout and responsive grids
+
+## 4) Tech stack
+- **Framework:** Next.js 14 App Router, React 18, TypeScript
+- **UI:** Tailwind CSS, clsx, tailwind-merge, lucide-react icons, @fontsource/inter
+- **State & logic:** React state/hooks, custom calculator utilities
+- **Theming:** next-themes (class-based)
+
+## 5) UI / UX direction
+- Premium dark dashboard, Apple/Notion-inspired restraint
+- Decision-first hierarchy: affordability → calculator → compare → breakdown
+- Soft cards, rounded containers, subtle accents, responsive mobile support
+
+## 6) Project structure (high level)
+```bash
+src/
+  app/
+    page.tsx          # main dashboard + views (affordability, discover, calculator, compare, breakdown)
+    layout.tsx        # App shell & providers
+    providers.tsx     # Theme provider
+    globals.css       # Tailwind and theme tokens
+  components/
+    Sidebar.tsx
+    SearchBar.tsx
+    CarCard.tsx
+    CarGrid.tsx
+    SelectedCarHero.tsx
+    InputPanel.tsx
+    ResultPanel.tsx
+    ComparePanel.tsx
+    AmortizationTable.tsx
+    ui/               # shared UI primitives (Card, Button, Input, etc.)
+  data/
+    cars.ts           # local starter dataset
+  lib/
+    calculator.ts     # flat-rate loan math
+    format.ts         # currency/percent helpers
+  types/
+    car.ts, loan.ts
+public/
+  cars/               # car images (place locally)
+  placeholder/        # fallback images
+```
+
+## 7) How it works (flow)
+1. **Affordability view:** Enter salary, down payment, tenure, rate, loan type → budgets and recommended max prices update instantly.
+2. **Browse/Discover:** Search or pick a featured car; affordability badges rank options.
+3. **Calculator:** Selected car seeds inputs; live repayment and affordability status update as you edit.
+4. **Compare:** Save up to 3 scenarios, highlight best monthly repayment, view deltas vs baseline.
+5. **Breakdown:** Simplified flat-rate amortisation schedule (monthly & yearly).
+
+## 8) Local setup
+Prereqs: Node 18+ (20 recommended), npm.
 ```bash
 npm install
 npm run dev
 # open http://localhost:3000
 ```
+Optional env: copy `.env.example` to `.env.local` and fill values if needed.
 
-Environment (optional):
-Create `.env.local` based on `.env.example` for analytics/debug flags.
-
-## Build & preview
+## 9) Available scripts
 ```bash
-npm run build
-npm run start   # serves the production build
+npm run dev     # start dev server
+npm run build   # production build
+npm run start   # run built app
+npm run lint    # lint the codebase
 ```
 
-## Deployment recommendations
-This app uses Next.js App Router with dynamic rendering; it is best deployed on a platform that supports Next.js server output (e.g., **Vercel** or **Netlify Edge/SSR**).
+## 10) Responsive support
+- Mobile: stacked sections, single-column inputs/cards, slide-in mobile nav.
+- Tablet: 2–3 column grids where space allows.
+- Desktop: full dashboard shell with sidebar and wide grids.
 
-### Deploy to Vercel (recommended)
-1) Connect this repository in Vercel.  
-2) Framework preset: **Next.js**.  
-3) Build command: `npm run build` (default).  
-4) Output: `.vercel/output` (handled automatically).  
-5) Set any env vars from `.env.example` if needed.  
+## 11) Known limitations
+- Uses a simplified flat-rate loan model (not bank-grade reducing balance).
+- No backend/APIs; data is local and static.
+- GitHub Pages static export is not configured; use an SSR-capable host for production.
 
-### About GitHub Pages
-The repo currently includes a `deploy.yml` Pages workflow, but the project is **not configured for static export**. App Router features (theming, dynamic routes) require a Next.js server runtime. If you must use Pages, you would need to switch to `output: "export"` in `next.config.mjs`, ensure only static routes are used, and adjust asset `basePath`—that trade-off is not recommended for this app. Prefer Vercel for a correct deployment.
+## 12) Future improvements
+- Bank-style reducing-balance calculations and rate tables
+- Richer car dataset with specs and images
+- Export/share flows (PDF or link)
+- User profiles to save scenarios
 
-## Known limitations
-- GitHub Pages workflow will fail without converting the app to a static export.
-- Some pages rely on client-side hydration (theme toggle), so JS must be enabled.
+## 13) Screenshots
+- _Add your latest desktop and mobile screenshots here_
 
-## Project scripts
-- `npm run dev` – start dev server
-- `npm run build` – production build
-- `npm run start` – run built app
-- `npm run lint` – lint the codebase
+## 14) Closing
+CarLoan.my focuses on clarity and confidence: start from salary, see what’s affordable, adjust, compare, and decide—all in one premium dashboard.
