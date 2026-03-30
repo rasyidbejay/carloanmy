@@ -98,7 +98,18 @@ npm run lint    # lint the codebase
 ## 11) Known limitations
 - Uses a simplified flat-rate loan model (not bank-grade reducing balance).
 - No backend/APIs; data is local and static.
-- GitHub Pages static export is not configured; use an SSR-capable host for production.
+- Static export for GitHub Pages: dynamic SSR features are not used, but refresh/deep links are constrained to the exported routes.
+
+## GitHub Pages deployment
+- Configured for static export with `output: "export"`, `basePath` `/carloanmy`, `assetPrefix` `/carloanmy/`, and unoptimized images for Pages.
+- Build & export:
+  ```bash
+  npm install
+  npm run build
+  npm run export
+  cp out/index.html out/404.html   # SPA-ish fallback on Pages
+  ```
+- Publish the `out/` folder to GitHub Pages. Target URL: `https://rasyidbejay.com/carloanmy/`.
 
 ## 12) Future improvements
 - Bank-style reducing-balance calculations and rate tables
