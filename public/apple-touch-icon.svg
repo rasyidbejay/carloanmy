@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="CarLoan.my apple touch icon">
+  <defs>
+    <linearGradient id="appleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff7ff" />
+      <stop offset="100%" stop-color="#d5e9ff" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="42" fill="url(#appleBg)" />
+  <rect x="18" y="18" width="144" height="144" rx="34" fill="white" opacity="0.9" />
+  <path
+    d="M46 103c4-17 13-30 28-39 10-6 21-9 33-9 19 0 36 8 45 23 5 9 9 18 10 28h-14c-2-7-4-13-8-19-7-11-20-17-34-17-8 0-16 2-23 6-11 6-19 15-23 27H46Zm11 13h74c9 0 15 6 15 15v8H42v-8c0-9 7-15 15-15Zm6 10c-3 0-5 2-5 5v3h72v-3c0-3-2-5-5-5H63Zm8 25a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm58 0a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm-13-84a14 14 0 1 1 0-28 14 14 0 0 1 0 28Z"
+    fill="#0a84ff"
+  />
+</svg>
